@@ -1,0 +1,51 @@
+﻿<style>
+    .card-one {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+    }
+
+    .card-two {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: #fff;
+    }
+
+    .card-three {
+        background-color: #fdd835;
+        border-color: #fdd835;
+        color: #000;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-one shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">Lieferung</h2>
+                    <p class="card-text">Lieferungen verwalten.</p>
+                    <a class="btn btn-light" asp-area="" asp-controller="Lieferung" asp-action="Index">Lieferungen &raquo;</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-two shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">Bestellung</h2>
+                    <p class="card-text">Bestellungen verwalten.</p>
+                    <a class="btn btn-light" asp-area="" asp-controller="Bestellung" asp-action="Index">Bestellungen &raquo;</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-three shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">Produkt</h2>
+                    <p class="card-text">Produkte verwalten.</p>
+                    <a class="btn btn-light" asp-area="" asp-controller="Produkt" asp-action="Index">Produkte &raquo;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

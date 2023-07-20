@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "DurchschnittlicheMengen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>DurchschnittlicheMengen</h1>
+
+<canvas id="barChart" width="400" height="200"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript">
+    var ctx = document.getElementById('barChart').getContext('2d');
+    var chartData = @Html.Raw(Json.Serialize(ViewBag.Produkte));
+
+    var labels = chartData.map(p => p.Name);
+    var durchschnittlicheBestellmenge = chartData.map(p => p.DurchschnittlicheBestellmenge);
+    var durchschnittlicheLiefermenge = chartData.map(p => p.DurchschnittlicheLiefermenge);
+
+    var barChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Durchschnittliche Bestellmenge',
+                    backgroundColor: 'red',
+                    borderColor: 'red',
+                    borderWidth: 1,
+                    data: durchschnittlicheBestellmenge
+                },
+                {
+                    label: 'Durchschnittliche Liefermenge',
+                    backgroundColor: 'blue',
+                    borderColor: 'blue',
+                    borderWidth: 1,
+                    data: durchschnittlicheLiefermenge
+                }
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
